@@ -1,0 +1,1376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Lucre Digital Labs creates premium websites, digital experiences, AI chatbots and business automation solutions for ambitious brands.">
+  <title>Lucre Digital Labs | Digital Excellence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface-light: #181818;
+      --gold: #d4af37;
+      --gold-light: #f0d98a;
+      --white: #f7f5ef;
+      --muted: #a5a5a5;
+      --border: rgba(212, 175, 55, 0.20);
+      --max-width: 1160px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body, button, input, textarea, select {
+      font-family: "DM Sans", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea, select {
+      font-size: 16px;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible, a:focus-visible,
+    input:focus-visible, textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), 90%);
+      margin-inline: auto;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 25px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 44px;
+    }
+
+    .section-heading h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(30px, 5vw, 49px);
+      line-height: 1.18;
+      letter-spacing: -1.7px;
+      margin: 18px 0;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      min-height: 49px;
+      padding: 12px 21px;
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: transform .25s, background .25s, color .25s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: #090909;
+      background: var(--gold);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+
+    .btn-outline {
+      color: var(--white);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      color: var(--gold-light);
+      background: #17140b;
+    }
+
+    /* NAVIGATION */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 8, 8, .94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: "Manrope", sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      transform: rotate(-3deg);
+    }
+
+    .brand-name {
+      font-family: "Manrope", sans-serif;
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+    }
+
+    .brand-sub {
+      display: block;
+      color: var(--gold);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    .nav-links a {
+      color: #c4c4c4;
+      font-size: 12px;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-light);
+    }
+
+    .nav-cta {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      color: var(--gold-light) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      width: 44px;
+      height: 42px;
+      font-size: 23px;
+      cursor: pointer;
+    }
+
+    /* HOME */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 85% 45%, rgba(173, 130, 24, .13), transparent 43%),
+        linear-gradient(135deg, #080808 40%, #10100d);
+    }
+
+    .hero::after {
+      content: "L";
+      position: absolute;
+      z-index: -1;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(280px, 48vw, 600px);
+      font-weight: 800;
+      line-height: 1;
+      color: rgba(212, 175, 55, .035);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 790px;
+      padding: 90px 0 100px;
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(42px, 8vw, 82px);
+      font-weight: 800;
+      letter-spacing: -4px;
+      line-height: 1.06;
+      margin: 25px 0;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      max-width: 590px;
+      color: #b5b5b5;
+      font-size: clamp(15px, 2vw, 18px);
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-note {
+      margin-top: 46px;
+      color: #797979;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-note span {
+      color: var(--gold);
+      margin: 0 10px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #0d0d0d;
+      border-block: 1px solid rgba(255,255,255,.04);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .service-card {
+      padding: 30px;
+      background: linear-gradient(145deg, #141414, #0e0e0e);
+      border: 1px solid #252525;
+      transition: border-color .3s, transform .3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 22px;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .service-link {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      overflow: hidden;
+      border: 1px solid #272727;
+      background: var(--surface);
+    }
+
+    .project-art {
+      min-height: 215px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at center, rgba(212,175,55,.13), transparent 65%),
+        #101010;
+    }
+
+    .project-art::before {
+      content: "";
+      position: absolute;
+      inset: 15px;
+      border: 1px solid rgba(212,175,55,.12);
+      pointer-events: none;
+    }
+
+    .project-art h3 {
+      position: relative;
+      z-index: 1;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(22px, 4vw, 34px);
+      letter-spacing: -1px;
+    }
+
+    .project-art h3 span {
+      display: block;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-top: 12px;
+    }
+
+    .project-info {
+      padding: 22px;
+    }
+
+    .project-info h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      color: var(--gold-light);
+      border: 1px solid var(--border);
+      padding: 4px 9px;
+      font-size: 10px;
+      margin-top: 14px;
+    }
+
+    .portfolio-note {
+      color: #888;
+      font-size: 12px;
+      margin-top: 22px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background:
+        radial-gradient(ellipse at 5% 80%, rgba(212,175,55,.07), transparent 40%),
+        #0d0d0d;
+      border-block: 1px solid rgba(255,255,255,.05);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-copy h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -2px;
+      line-height: 1.17;
+      margin: 20px 0;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .about-panel {
+      padding: 32px;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, #17150f, #0b0b0b);
+    }
+
+    .about-panel h3 {
+      color: var(--gold-light);
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      margin-bottom: 22px;
+    }
+
+    .principle {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 16px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .principle:last-child {
+      border-bottom: 0;
+    }
+
+    .principle-number {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      padding-top: 3px;
+    }
+
+    .principle h4 {
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .principle p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .contact-copy h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(32px, 5vw, 49px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+      margin: 20px 0;
+    }
+
+    .contact-copy > p {
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-top: 22px;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-detail .symbol {
+      color: var(--gold);
+      font-size: 19px;
+    }
+
+    .contact-detail small {
+      display: block;
+      color: #858585;
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+
+    .contact-form {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid #292929;
+    }
+
+    .contact-form h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .form-intro {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      color: #d6d6d6;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 13px;
+      background: #090909;
+      border: 1px solid #333;
+      border-radius: 2px;
+      color: var(--white);
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #737373;
+    }
+
+    .field select option {
+      background: #111;
+      color: #fff;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    .form-note {
+      color: #888;
+      font-size: 11px;
+      margin-top: 14px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 32px 0;
+      background: #050505;
+      border-top: 1px solid #252525;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      color: #898989;
+      font-size: 11px;
+      margin-top: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    /* FLOATING WHATSAPP */
+
+    .whatsapp-float {
+      position: fixed;
+      z-index: 900;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #20c66a;
+      color: #04190c;
+      font-size: 24px;
+      font-weight: 800;
+      box-shadow: 0 5px 25px #0008;
+      transition: transform .2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px);
+    }
+
+    /* ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* TABLET AND MOBILE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .navbar > .btn {
+        display: none;
+      }
+
+      .about-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-panel {
+        max-width: 650px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: 90%;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .navbar {
+        min-height: 70px;
+      }
+
+      .brand-name {
+        font-size: 12px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 69px;
+        left: 0;
+        right: 0;
+        padding: 18px 5% 25px;
+        background: #090909;
+        border-bottom: 1px solid var(--border);
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 13px 0;
+        font-size: 14px;
+        border-bottom: 1px solid #222;
+      }
+
+      .nav-links .nav-cta {
+        margin-top: 12px;
+        text-align: center;
+        padding: 12px;
+      }
+
+      .hero {
+        min-height: 590px;
+      }
+
+      .hero-content {
+        padding: 76px 0 80px;
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 11vw, 64px);
+        letter-spacing: -2.5px;
+      }
+
+      .hero-note {
+        line-height: 2.4;
+      }
+
+      .service-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 25px;
+      }
+
+      .project-art {
+        min-height: 190px;
+      }
+
+      .contact-form {
+        padding: 22px;
+      }
+
+      .footer-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="#home" aria-label="Lucre Digital Labs home">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">
+          LUCRE
+          <span class="brand-sub">DIGITAL LABS</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation" aria-expanded="false"
+        aria-controls="navLinks">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Start a Project ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HOME -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Your vision. Our digital craft.</span>
+
+          <h1>
+            We build digital
+            experiences that
+            <span>move business forward.</span>
+          </h1>
+
+          <p class="hero-description">
+            Premium websites, intelligent automation and digital
+            solutions for ambitious businesses ready to grow.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">
+              Start a Project <span>↗</span>
+            </a>
+            <a class="btn btn-outline" href="#services">
+              Explore Services <span>↓</span>
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Web Design <span>◆</span>
+            AI Solutions <span>◆</span>
+            Digital Innovation
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SERVICES -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">What we do</span>
+          <h2>Digital solutions, <span class="gold">built with purpose.</span></h2>
+          <p>
+            We help businesses build a stronger digital presence,
+            improve customer experiences and work smarter.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">⌘</div>
+            <h3>Website Design & Development</h3>
+            <p>
+              Modern, mobile-friendly websites for businesses,
+              professionals, brands and online services.
+            </p>
+            <a class="service-link" href="#contact"
+              data-service="Website Design & Development">
+              Discuss your website ↗
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">▣</div>
+            <h3>Digital Business Cards</h3>
+            <p>
+              Elegant digital profiles with contact details,
+              social links and QR codes for easy sharing.
+            </p>
+            <a class="service-link" href="#contact"
+              data-service="Digital Business Cards">
+              Create your card ↗
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">✳</div>
+            <h3>AI Chatbots & Automation</h3>
+            <p>
+              Customer support assistants, inquiry handling and
+              business workflows designed to save time.
+            </p>
+            <a class="service-link" href="#contact"
+              data-service="AI Chatbots & Automation">
+              Explore AI solutions ↗
+            </a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">◈</div>
+            <h3>Custom Digital Solutions</h3>
+            <p>
+              Tailored digital experiences and software concepts
+              shaped around your business requirements.
+            </p>
+            <a class="service-link" href="#contact"
+              data-service="Custom Digital Solutions">
+              Discuss your idea ↗
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. OUR WORK -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Selected concepts</span>
+          <h2>Ideas with <span class="gold">room to grow.</span></h2>
+          <p>
+            A preview of the types of digital experiences Lucre
+            Digital Labs can create.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="project reveal">
+            <div class="project-art">
+              <h3>
+                LUCRE
+                <span>PREMIUM DIGITAL PRESENCE</span>
+              </h3>
+            </div>
+            <div class="project-info">
+              <h3>Luxury Brand Website</h3>
+              <p>
+                A sophisticated web experience with premium
+                typography, responsive layouts and clear calls to action.
+              </p>
+              <span class="project-tag">DESIGN CONCEPT</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-art">
+              <h3>
+                LUCRE AI
+                <span>INTELLIGENT CONVERSATIONS</span>
+              </h3>
+            </div>
+            <div class="project-info">
+              <h3>AI Customer Assistant</h3>
+              <p>
+                A concept for helping businesses respond to
+                common questions and manage customer inquiries.
+              </p>
+              <span class="project-tag">PRODUCT CONCEPT</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-art">
+              <h3>
+                LUCRE CARD
+                <span>YOUR IDENTITY. ONE LINK.</span>
+              </h3>
+            </div>
+            <div class="project-info">
+              <h3>Digital Business Card</h3>
+              <p>
+                A shareable professional profile that brings
+                contact information and business links together.
+              </p>
+              <span class="project-tag">DESIGN CONCEPT</span>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-art">
+              <h3>
+                LUCRE COMMERCE
+                <span>BUSINESS MEETS DIGITAL</span>
+              </h3>
+            </div>
+            <div class="project-info">
+              <h3>Digital Marketplace</h3>
+              <p>
+                A concept for connecting clients with digital
+                services and independent creative professionals.
+              </p>
+              <span class="project-tag">PLATFORM CONCEPT</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="portfolio-note">
+          These are illustrative concepts, not claims of completed
+          client projects. Replace them with real work as your portfolio grows.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. ABOUT -->
+    <section class="section about" id="about">
+      <div class="container about-layout">
+        <div class="about-copy reveal">
+          <span class="eyebrow">About Lucre</span>
+          <h2>Technology should create <span class="gold">real value.</span></h2>
+          <p>
+            Lucre Digital Labs is being built around a simple idea:
+            make useful digital technology more accessible to
+            businesses and people with ambitious goals.
+          </p>
+          <p>
+            Our direction combines a digital agency with a future
+            marketplace where clients can discover services and
+            work with skilled developers and digital creators.
+          </p>
+          <p>
+            Starting in Kenya, our ambition is to serve a wider
+            international market through quality work, clear
+            communication and practical solutions.
+          </p>
+          <a class="btn btn-outline" href="#contact">
+            Let's Build Something <span>↗</span>
+          </a>
+        </div>
+
+        <div class="about-panel reveal">
+          <h3>The Lucre standard.</h3>
+
+          <div class="principle">
+            <span class="principle-number">01</span>
+            <div>
+              <h4>Purpose Before Complexity</h4>
+              <p>Build what solves the problem, not what adds unnecessary complexity.</p>
+            </div>
+          </div>
+
+          <div class="principle">
+            <span class="principle-number">02</span>
+            <div>
+              <h4>Design With Intention</h4>
+              <p>Make every interaction clear, useful and visually considered.</p>
+            </div>
+          </div>
+
+          <div class="principle">
+            <span class="principle-number">03</span>
+            <div>
+              <h4>Growth Through Quality</h4>
+              <p>Earn trust through honest communication and reliable delivery.</p>
+            </div>
+          </div>
+
+          <div class="principle">
+            <span class="principle-number">04</span>
+            <div>
+              <h4>Think Beyond Borders</h4>
+              <p>Build for Kenyan businesses today and international opportunities tomorrow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CONTACT -->
+    <section class="section" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Start a conversation</span>
+          <h2>Have an idea? <span class="gold">Let's build it.</span></h2>
+          <p>
+            Tell us what you want to create. Share your goals,
+            and let's discuss a practical next step for your project.
+          </p>
+
+          <a class="btn btn-primary" href="https://wa.me/254794902915"
+            target="_blank" rel="noopener noreferrer">
+            Chat on WhatsApp ↗
+          </a>
+
+          <div class="contact-detail">
+            <span class="symbol" aria-hidden="true">✉</span>
+            <div>
+              <small>EMAIL</small>
+              <a href="mailto:jerryochilo@gmail.com">
+                jerryochilo@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="symbol" aria-hidden="true">◎</span>
+            <div>
+              <small>INSTAGRAM</small>
+              <a href="https://www.instagram.com/jerry.tech.cyber/"
+                target="_blank" rel="noopener noreferrer">
+                @jerry.tech.cyber
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="symbol" aria-hidden="true">⌘</span>
+            <div>
+              <small>GITHUB</small>
+              <a href="https://github.com/simplymcbluey"
+                target="_blank" rel="noopener noreferrer">
+                github.com/simplymcbluey
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="projectForm">
+          <h3>Tell us about your project.</h3>
+          <p class="form-intro">
+            Complete this short form to prepare a project inquiry on WhatsApp.
+          </p>
+
+          <div class="field">
+            <label for="clientName">Your name *</label>
+            <input id="clientName" name="clientName" type="text"
+              placeholder="Enter your name" required maxlength="100">
+          </div>
+
+          <div class="field">
+            <label for="clientEmail">Your email</label>
+            <input id="clientEmail" name="clientEmail" type="email"
+              placeholder="you@example.com" maxlength="150">
+          </div>
+
+          <div class="field">
+            <label for="projectType">What do you need? *</label>
+            <select id="projectType" name="projectType" required>
+              <option value="">Choose a service</option>
+              <option>Website Design & Development</option>
+              <option>Digital Business Cards</option>
+              <option>AI Chatbots & Automation</option>
+              <option>Custom Digital Solutions</option>
+              <option>Marketplace / E-commerce</option>
+              <option>Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="projectBudget">Approximate budget (optional)</label>
+            <select id="projectBudget" name="projectBudget">
+              <option value="">Prefer to discuss</option>
+              <option>Below KSh 5,000</option>
+              <option>KSh 5,000 – 15,000</option>
+              <option>KSh 15,000 – 50,000</option>
+              <option>KSh 50,000+</option>
+              <option>International budget / USD</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="projectDetails">Tell us about your idea *</label>
+            <textarea id="projectDetails" name="projectDetails"
+              placeholder="What do you want to build, and what should it achieve?"
+              required maxlength="2000"></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">
+            Send Project Inquiry via WhatsApp ↗
+          </button>
+
+          <p class="form-note">
+            This form opens WhatsApp with your draft inquiry.
+            Nothing is stored in a website database.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="#home">
+          <span class="brand-mark">L</span>
+          <span class="brand-name">
+            LUCRE
+            <span class="brand-sub">DIGITAL LABS</span>
+          </span>
+        </a>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#services">Services</a>
+          <a href="#work">Our Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <p class="footer-copy">
+        © <span id="year"></span> Lucre Digital Labs.
+        Built with intention.
+      </p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP SHORTCUT -->
+  <a class="whatsapp-float"
+    href="https://wa.me/254794902915"
+    target="_blank" rel="noopener noreferrer"
+    aria-label="Chat with Lucre Digital Labs on WhatsApp">W</a>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // Close mobile menu after selecting a section
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Smooth reveal animations, with a fallback for older browsers
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(function (element) {
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach(function (element) {
+        element.classList.add("visible");
+      });
+    }
+
+    // Automatically show the current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Preselect a service when someone clicks a service link
+    document.querySelectorAll("[data-service]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        document.getElementById("projectType").value =
+          link.dataset.service;
+      });
+    });
+
+    // Prepare a project inquiry in WhatsApp
+    document.getElementById("projectForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("clientName").value.trim();
+        const email = document.getElementById("clientEmail").value.trim();
+        const service = document.getElementById("projectType").value;
+        const budget = document.getElementById("projectBudget").value;
+        const details = document.getElementById("projectDetails").value.trim();
+
+        if (!name || !service || !details) {
+          alert("Please complete your name, service and project details.");
+          return;
+        }
+
+        const message = [
+          "Hello Lucre Digital Labs!",
+          "",
+          "I'd like to discuss a project.",
+          "",
+          "Name: " + name,
+          "Email: " + (email || "Not provided"),
+          "Service: " + service,
+          "Budget: " + (budget || "Prefer to discuss"),
+          "",
+          "Project details:",
+          details
+        ].join("\n");
+
+        const whatsappURL =
+          "https://wa.me/254794902915?text=" +
+          encodeURIComponent(message);
+
+        window.open(whatsappURL, "_blank", "noopener,noreferrer");
+      }
+    );
+  </script>
+</body>
+</html>
